@@ -3,6 +3,10 @@
 
     $('.sidenav').sidenav();
 
+    $('.tabs').tabs({"swipeable":true});
+
+    $('#tabs-swipe-demo').tabs("select", "tab2");
+
   }); // end of document ready
 })(jQuery); // end of jQuery name space
 
