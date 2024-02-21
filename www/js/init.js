@@ -20,16 +20,21 @@ function onDeviceReady() {
 }
 
 $('#generate').click(function() {
+  $('.tabs').tabs("select","test-swipe-2");
   // fetch 10 dogs pics
   $.ajax({
     method: "GET",
     url: "https://dog.ceo/api/breeds/image/random/10",
     dataType: "json",   // necessitem això pq ens retorni un objecte JSON
   }).done(function (msg) {
-    // $("#test-swipe-2") hacer aqui lo de añadir las fotos de los perritos
-    for(let item in msg.message) {
-      console.log(msg.message[item]);
+    let test2Tag = $("#test-swipe-2");
+    test2Tag.empty();
 
+    for(let item in msg.message) {
+      let imgElement = $('<img>');
+      imgElement.attr('src', msg.message[item]);
+      imgElement.attr('alt', 'dog picture');
+      test2Tag.append(imgElement);
     };
   }).fail(function () {
     alert("ERROR");
